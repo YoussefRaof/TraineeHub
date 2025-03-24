@@ -1,0 +1,99 @@
+﻿@* @model Task01.Models.Track
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Track</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-warning btn-sm me-2 shadow" asp-action="Edit" asp-route-id="@Model.Id">
+        <i class="fas fa-edit"></i> Edit
+    </a>
+    <a asp-action="Index">Back to List</a>
+</div>
+ *@
+ @model Task01.Models.Track
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="container mt-4">
+    <h1 class="text-center text-uppercase bg-primary text-white p-3 rounded shadow-lg">Track Details</h1>
+
+    <div class="card shadow-lg p-4">
+        <h4 class="text-primary mb-3">Track Information</h4>
+        <hr />
+
+        <div class="row mb-3">
+            <label class="col-sm-2 fw-bold"> @Html.DisplayNameFor(model => model.Name):</label>
+            <div class="col-sm-10">
+                <input class="form-control-plaintext" value="@Model.Name" readonly>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <label class="col-sm-2 fw-bold"> @Html.DisplayNameFor(model => model.Description):</label>
+            <div class="col-sm-10">
+                <input class="form-control-plaintext" value="@Model.Description" readonly>
+            </div>
+        </div>
+    </div>
+
+    @if (Model.Trainees != null && Model.Trainees.Any())
+    {
+        <div class="card shadow-lg p-4 mt-4">
+            <h4 class="text-primary mb-3">Trainees</h4>
+            <table class="table table-striped table-hover table-bordered shadow-lg">
+                <thead class="bg-dark text-white">
+                    <tr class="text-center">
+                        <th class="p-3">Trainee Name</th>
+                        <th class="p-3">Email</th>
+                        <th class="p-3">Phone</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var trainee in Model.Trainees)
+                    {
+                        <tr class="text-center align-middle">
+                            <td class="fw-bold">@trainee.Name</td>
+                            <td class="text-muted">@trainee.Email</td>
+                            <td>@trainee.MobileNum</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+
+    <div class="mt-4 d-flex justify-content-between">
+        <a class="btn btn-warning btn-lg shadow" asp-action="Edit" asp-route-id="@Model.Id">
+            <i class="fas fa-edit"></i> Edit
+        </a>
+        <a class="btn btn-secondary btn-lg shadow" asp-action="Index">
+            <i class="fas fa-arrow-left"></i> Back to List
+        </a>
+    </div>
+</div>
+
+<!-- Font Awesome for Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">

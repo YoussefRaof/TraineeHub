@@ -1,0 +1,68 @@
+﻿@model Task01.Models.TraineeCourse
+
+@{
+    ViewData["Title"] = "Edit Trainee Course Grade";
+    SelectList trainess = new SelectList(ViewBag.Trainess, "Id", "Name");
+    SelectList courses = new SelectList(ViewBag.Courses, "Id", "Topic");
+}
+
+<h1 class="text-center mt-3">Edit Trainee Course Grade</h1>
+
+<hr />
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <form asp-action="Edit">
+            <div asp-validation-summary="All" class="alert alert-danger"></div>
+
+            <!-- Hidden Field for Primary Key (If Needed) -->
+            <input type="hidden" asp-for="TraineeId" />
+            <input type="hidden" asp-for="CourseId" />
+
+            <!-- Select Trainee -->
+            <div class="form-group mb-3">
+                <label asp-for="TraineeId" class="form-label fw-bold">Select Trainee</label>
+                <select asp-for="TraineeId" class="form-select" asp-items="@trainess" disabled>
+                    <option value="">-- Choose Trainee --</option>
+                </select>
+                <span asp-validation-for="TraineeId" class="text-danger"></span>
+            </div>
+
+            <!-- Select Course -->
+            <div class="form-group mb-3">
+                <label asp-for="CourseId" class="form-label fw-bold">Select Course</label>
+                <select asp-for="CourseId" class="form-select" asp-items="@courses" disabled>
+                    <option value="">-- Choose Course --</option>
+                </select>
+                <span asp-validation-for="CourseId" class="text-danger"></span>
+            </div>
+
+            <!-- Grade Input -->
+            <div class="form-group mb-3">
+                <label asp-for="Grade" class="form-label fw-bold">Grade</label>
+                <input asp-for="Grade" class="form-control" placeholder="Enter grade (e.g., 85.5)" />
+                <span asp-validation-for="Grade" class="text-danger"></span>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-group">
+                <button type="submit" class="btn btn-success w-100 shadow">
+                    <i class="fas fa-save"></i> Update Grade
+                </button>
+            </div>
+        </form>
+
+        <!-- Back to List Button -->
+        <div class="mt-3 text-center">
+            <a class="btn btn-secondary shadow" asp-action="Index">
+                <i class="fas fa-arrow-left"></i> Back to List
+            </a>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Task01.Models.TraineeCourse>
+
+@{
+    ViewData["Title"] = "Trainee Course Grades";
+}
+
+<h1 class="text-center mt-3">Trainee Course Grades</h1>
+
+<p>
+    <a class="btn btn-primary shadow" asp-action="Create">
+        <i class="fas fa-plus"></i> Add New Grade
+    </a>
+</p>
+
+<table class="table table-hover table-bordered shadow-sm">
+    <thead class="table-dark">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Trainee.Name)</th>
+            <th>@Html.DisplayNameFor(model => model.Course.Topic)</th>
+            <th>@Html.DisplayNameFor(model => model.Grade)</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Trainee.Name</td>
+                <td>@item.Course.Topic</td>
+                <td>@item.Grade</td>
+                <td>
+                    <a class="btn btn-warning btn-sm me-1 shadow"
+                       asp-action="Edit"
+                       asp-route-traineeId="@item.TraineeId"
+                       asp-route-courseId="@item.CourseId">
+                        <i class="fas fa-edit"></i> Edit
+                    </a>
+
+                    <a class="btn btn-danger btn-sm shadow"
+                       asp-action="Delete"
+                       asp-route-traineeId="@item.TraineeId"
+                       asp-route-courseId="@item.CourseId">
+                        <i class="fas fa-trash-alt"></i> Delete
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

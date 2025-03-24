@@ -1,0 +1,43 @@
+﻿@model Task01.Models.Trainee
+
+@{
+    ViewData["Title"] = "Trainee Details";
+}
+
+<h1 class="text-center text-primary mt-3">Trainee Details</h1>
+
+<div class="card shadow-lg border-0 mt-4">
+    <div class="card-header bg-dark text-white">
+        <h4 class="mb-0"><i class="fas fa-user"></i> @Model.Name</h4>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">Name</dt>
+            <dd class="col-sm-9">@Model.Name</dd>
+
+            <dt class="col-sm-3">Gender</dt>
+            <dd class="col-sm-9">@Model.Gender</dd>
+
+            <dt class="col-sm-3">Email</dt>
+            <dd class="col-sm-9">@Model.Email</dd>
+
+            <dt class="col-sm-3">Mobile Number</dt>
+            <dd class="col-sm-9">@Model.MobileNum</dd>
+
+            <dt class="col-sm-3">Birthdate</dt>
+            <dd class="col-sm-9">@Model.Birthdate.ToString("yyyy-MM-dd")</dd>
+
+            <dt class="col-sm-3">Track</dt>
+            <dd class="col-sm-9">@Model.Trk.Name</dd>
+        </dl>
+    </div>
+</div>
+
+<div class="mt-3">
+    <a class="btn btn-warning shadow" asp-action="Edit" asp-route-id="@Model.Id">
+        <i class="fas fa-edit"></i> Edit
+    </a>
+    <a class="btn btn-secondary shadow" asp-action="Index">
+        <i class="fas fa-arrow-left"></i> Back to List
+    </a>
+</div>

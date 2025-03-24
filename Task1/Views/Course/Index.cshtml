@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Task01.Models.Course>
+
+@{
+    ViewData["Title"] = "Courses";
+}
+
+<h1 class="mb-4 border-bottom pb-2 text-primary">Courses</h1>
+
+<p>
+    <a class="btn btn-success shadow-sm rounded-pill px-4" asp-action="Create">
+        <i class="fas fa-plus-circle"></i> Add Course
+    </a>
+</p>
+
+<table class="table table-striped table-bordered shadow-sm">
+    <thead class="bg-info text-white table-active">
+        <tr>
+            <th class="text-center">@Html.DisplayNameFor(model => model.Topic)</th>
+            <th class="text-center ">@Html.DisplayNameFor(model => model.Grade)</th>
+       
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="text-center">@Html.DisplayFor(modelItem => item.Topic)</td>
+                <td class="text-center">@Html.DisplayFor(modelItem => item.Grade)</td>
+                <td class="text-center">
+                    <a class="btn btn-outline-warning btn-sm rounded shadow-sm" asp-action="Edit" asp-route-id="@item.Id">
+                        <i class="fas fa-edit"></i> Edit
+                    </a>
+                    <a class="btn btn-outline-info btn-sm rounded shadow-sm" asp-action="Details" asp-route-id="@item.Id">
+                        <i class="fas fa-info-circle"></i> Details
+                    </a>
+                    <a class="btn btn-outline-danger btn-sm rounded shadow-sm" asp-action="Delete" asp-route-id="@item.Id">
+                        <i class="fas fa-trash"></i> Delete
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

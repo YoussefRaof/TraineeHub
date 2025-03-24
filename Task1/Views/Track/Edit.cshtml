@@ -1,0 +1,63 @@
+﻿@model Task01.Models.Track
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="container mt-4">
+    <h1 class="text-center  bg-primary text-white p-3 rounded shadow-lg">Edit Track</h1>
+
+    <div class="card shadow-lg p-4 mt-4">
+        <h4 class="text-primary mb-3">Track Information</h4>
+        <hr />
+
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form asp-action="Edit">
+                  @*   <div asp-validation-summary="All" class="alert alert-danger"></div>
+
+                    <div class="mb-3">
+                        <label asp-for="Name" class="form-label fw-bold text-secondary"></label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-light">
+                                <i class="fas fa-tag text-primary"></i>
+                            </span>
+                            <input asp-for="Name" class="form-control shadow-sm" placeholder="Enter Track Name" />
+                        </div>
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Description" class="form-label fw-bold text-secondary"></label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-light">
+                                <i class="fas fa-align-left text-primary"></i>
+                            </span>
+                            <input asp-for="Description" class="form-control shadow-sm" placeholder="Enter Description" />
+                        </div>
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+
+                    <div class="d-flex justify-content-between mt-4">
+                        <a class="btn btn-secondary btn-lg shadow" asp-action="Index">
+                            <i class="fas fa-arrow-left"></i> Back to List
+                        </a>
+                        <button type="submit" class="btn btn-success btn-lg shadow">
+                            <i class="fas fa-check"></i> Edit Track
+                        </button>
+                    </div> *@
+                    <partial name="_CreateEditPartial" model="Model" />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<!-- Font Awesome for Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">

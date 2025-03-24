@@ -1,0 +1,23 @@
+﻿@model Task02.Models.Product
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1> Product Details</h1>
+
+<div class="row">
+
+    <div class="col-md-4 mb-2">
+
+        <partial name="_CardPartial" model="@Model"/>
+    
+
+    </div>
+
+</div>
+<div>
+    <a class="btn btn-secondary" asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@Model?.Id">Delete</a> |
+    <a class ="btn btn-info mt-1"asp-action="Index">Back to List</a>
+</div>
