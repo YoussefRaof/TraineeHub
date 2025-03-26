@@ -1,4 +1,5 @@
-﻿@model RegisterUserViewModel
+﻿@using Task01.ViewModels
+@model RegisterUserViewModel
 
 @{
     ViewData["Title"] = "Register";
@@ -53,6 +54,18 @@
             <a class="btn btn-secondary shadow" asp-action="Login">
                 <i class="fas fa-sign-in-alt"></i> Already have an account? Login
             </a>
+        </div>
+
+        <hr />
+
+        <div class="text-center">
+            <p class="fw-bold">Or Register using:</p>
+            <form asp-action="ExternalLogin" method="post">
+                <input type="hidden" name="provider" value="Facebook" />
+                <button type="submit" class="btn btn-outline-primary w-100">
+                    <i class="fab fa-facebook"></i> Continue with Facebook
+                </button>
+            </form>
         </div>
     </div>
 </div>

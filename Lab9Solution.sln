@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.12.35728.132
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task02", "Task02\Task02.csproj", "{09A73506-1F77-4FE0-953F-524359E9D7F7}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task01", "Task1\Task01.csproj", "{97BA952F-AD47-468E-8DF0-7CEDE525A593}"
 EndProject
 Global
@@ -13,10 +11,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{09A73506-1F77-4FE0-953F-524359E9D7F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{09A73506-1F77-4FE0-953F-524359E9D7F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{09A73506-1F77-4FE0-953F-524359E9D7F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{09A73506-1F77-4FE0-953F-524359E9D7F7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{97BA952F-AD47-468E-8DF0-7CEDE525A593}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{97BA952F-AD47-468E-8DF0-7CEDE525A593}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97BA952F-AD47-468E-8DF0-7CEDE525A593}.Release|Any CPU.ActiveCfg = Release|Any CPU

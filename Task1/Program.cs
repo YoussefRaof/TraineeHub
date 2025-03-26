@@ -33,6 +33,12 @@ namespace Task1
                 op.Password.RequireNonAlphanumeric = false;
             })
                              .AddEntityFrameworkStores<TraineeDB>();
+
+            builder.Services.AddAuthentication().AddFacebook(Op =>
+            {
+                Op.ClientId = "1054087996533509";
+                Op.ClientSecret = "d34a220b96de1c90e577ec3484e0caa5";
+            });
             #endregion
 
             var app = builder.Build();
