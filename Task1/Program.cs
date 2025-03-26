@@ -1,6 +1,8 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Task01.Context;
 using Task01.Interfaces;
+using Task01.Models;
 using Task01.Repositories;
 
 namespace Task1
@@ -23,6 +25,14 @@ namespace Task1
             builder.Services.AddScoped<ICourseRepository, CourseRepository>();
             builder.Services.AddScoped<ITranieeRepository, TraineeRepository>();
             builder.Services.AddScoped<ITraineeCourseRepository, TraineeCourseRepository>();
+            builder.Services.AddIdentity<ApplicationUser, IdentityRole>(op =>
+            {
+                op.Password.RequireUppercase = false;
+                
+                op.Password.RequiredLength = 4;
+                op.Password.RequireNonAlphanumeric = false;
+            })
+                             .AddEntityFrameworkStores<TraineeDB>();
             #endregion
 
             var app = builder.Build();
@@ -34,6 +44,7 @@ namespace Task1
             }
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapStaticAssets();

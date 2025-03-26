@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Task01.Interfaces;
 using Task01.Models;
 
 namespace Task01.Controllers
 {
+    [Authorize]
     public class CourseController : Controller
     {
         private readonly ICourseRepository _courseRepo;

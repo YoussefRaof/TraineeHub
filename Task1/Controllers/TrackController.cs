@@ -1,4 +1,5 @@
 ﻿using AspNetCoreGeneratedDocument;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
@@ -8,6 +9,8 @@ using Task01.Models;
 
 namespace Task01.Controllers
 {
+    [Authorize]
+
     public class TrackController : Controller
     {
         private readonly ITrackRepository _trackRepo;

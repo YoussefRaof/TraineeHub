@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Task01.Interfaces;
@@ -6,6 +7,8 @@ using Task01.Models;
 
 namespace Task01.Controllers
 {
+    [Authorize]
+
     public class TraineeCourseController : Controller
     {
         private readonly ITraineeCourseRepository _traineeCourseRepo;
